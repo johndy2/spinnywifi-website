@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpinnyWFC Server Status</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(#2b8cff, #0057b8);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background: #222;
+            padding: 20px;
+            border: 2px solid #444;
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #4db8ff;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: 200px auto;
+            row-gap: 10px;
+            column-gap: 20px;
+            margin-top: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #9cd6ff;
+        }
+
+        .online {
+            color: #00ff66;
+            font-weight: bold;
+        }
+
+        .offline {
+            color: #ff4444;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">SpinnyWFC Server Status</div>
+
+<div class="container">
+    <div class="section-title">Primary Services, (websites, server etc.</div>
+    <div class="status-grid">
+        <div class="label">SpinnyWFC website</div>
+        <div class="online">ONLINE: https://spinnywfc.ddnsgeek.com</div>
+
+        <div class="label">SpinnyHTTP arcade website</div>
+        <div class="online">ONLINE, visit http://spinnyhttp.mywire.org for old browsers, and modern-day browsers can visit https://spinnyhttp.mywire.org</div>
+
+        <div class="label">SpinnyWFC Server</div>
+        <div class="offline">In progress: login currently fails, only thing that works is CONNTEST but in UNO DSiWare, the game talks to NATNEG, but fails right on the spot.</div>
+
+        <div class="label">SpinnyZone Gateway</div>
+        <div class="offline">In progress: The server wont write to users.json after registering a new account.</div>
+
+        <div class="label">Johndy5609's personal website</div>
+        <div class="online">Working with some issues: The abtdev.html text keeps going onto the sidebar for some unknown reason.<div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-title">Server Info</div>
+    <div class="status-grid">
+        <div class="label">Status</div>
+        <div>Offline. Until the flaws have been fixed</div>
+
+        <div class="label">Uptime:</div>
+        <div>Uptime is not logged.</div>
+
+        <div class="label">Last Restart:</div>
+        <div>Restarts are not logged.</div>
+
+        <div class="label">Maintainer:</div>
+        <div>Johndy5609 (maintainer and developer)</div>
+    </div>
+</div>
+
+<div class="footer">
+    SpinnyWFC is a fan-run server and nothing is associated or related to Nintendo, Nintendo shut down their servers years ago.
+  <a class="button" href="/">Homepage</a>
+</div>
+
+</body>
+</html>

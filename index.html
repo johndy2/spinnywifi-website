@@ -2,114 +2,171 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SpinnyWFC</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
+    <title>SpinnyWFC — Home</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #0d0d0d;
-            color: white;
-            text-align: center;
+            background-color: #0b0b0b;
+            color: #e0e0e0;
         }
 
-        header {
-            background: linear-gradient(90deg, #00aaff, #0066ff);
-            padding: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        nav {
-            background: #111;
+        /* STATUS BAR */
+        #statusbar {
+            background-color: #111;
+            color: #00ff66;
             padding: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            border-bottom: 2px solid #00aaff;
-        }
-
-        nav a {
-            color: #00aaff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        .hero {
-            padding: 60px 20px;
-        }
-
-        .hero h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            opacity: 0.8;
-        }
-
-        .connect-btn {
-            margin-top: 30px;
-            padding: 15px 30px;
-            font-size: 20px;
-            background: #00aaff;
-            border: none;
-            border-radius: 8px;
-            color: black;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .connect-btn:hover {
-            background: #0088dd;
-        }
-
-        footer {
-            margin-top: 60px;
-            padding: 20px;
-            background: #111;
             font-size: 14px;
-            opacity: 0.7;
+            border-bottom: 2px solid #00ff66;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* SIDEBAR */
+        #sidebar {
+            width: 220px;
+            background-color: #111;
+            height: 100vh;
+            position: fixed;
+            top: 42px;
+            left: 0;
+            border-right: 2px solid #00ff66;
+            padding-top: 20px;
+        }
+
+        .sidebtn {
+            display: block;
+            padding: 15px;
+            margin: 10px;
+            background-color: #0f0f0f;
+            border: 2px solid #00ff66;
+            color: #00ff66;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            transition: 0.2s;
+        }
+
+        .sidebtn:hover {
+            background-color: #00ff66;
+            color: #0b0b0b;
+            box-shadow: 0 0 10px #00ff66;
+        }
+
+        /* MAIN CONTENT */
+        #main {
+            margin-left: 240px;
+            padding: 30px;
+        }
+
+        .bigbutton {
+            display: block;
+            width: 70%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #0f0f0f;
+            border: 3px solid #00ff66;
+            color: #00ff66;
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .bigbutton:hover {
+            background-color: #00ff66;
+            color: #0b0b0b;
+            box-shadow: 0 0 15px #00ff66;
+        }
+
+        /* NEWS FEED */
+        .newsbox {
+            background-color: #111;
+            border: 2px solid #00ff66;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        .newsitem {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #00ff66;
+        }
+
+        .newsitem:last-child {
+            border-bottom: none;
+        }
+
+        /* FOOTER */
+        #footer {
+            margin-top: 40px;
+            padding: 15px;
+            text-align: center;
+            color: #00ff66;
+            border-top: 2px solid #00ff66;
         }
     </style>
 </head>
 
 <body>
 
-<header>
-    SpinnyWFC
-</header>
+    <!-- STATUS BAR -->
+    <div id="statusbar">
+        SpinnyWFC Status: ONLINE • MKWii: Stable • DS WFC: Experimental • Last Update: Feb 2026
+    </div>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="supported.html">Supported Games</a>
-    <a href="errors.html">Error Codex</a>
-    <a href="about.html">About</a>
-    <a href="legal.html">Legal</a>
-    <a href="https://spinnybois.casacam.net/abtdev.html">About the developer</a>
-    <a href="connect.html">How to Connect</a>
-</nav>
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+        <a class="sidebtn" href="index.html">Home</a>
+        <a class="sidebtn" href="connect.html">How to Connect</a>
+        <a class="sidebtn" href="errors.html">Error Codex</a>
+        <a class="sidebtn" href="games.html">Supported Games</a>
+        <a class="sidebtn" href="about.html">About</a>
+        <a class="sidebtn" href="legal.html">Legal</a>
+    </div>
 
-<div class="hero">
-    <h1>Welcome to SpinnyWFC</h1>
-    <p>A hard drive themed Nintendo WFC revival.</p>
-</div>
+    <!-- MAIN CONTENT -->
+    <div id="main">
+        <h1 style="color:#00ff66; text-align:center;">Welcome to SpinnyWFC</h1>
+        <p style="text-align:center; font-size:18px;">
+            The big revival of the now defunct Nintendo WFC. Made by some random kid.
+        </p>
 
-<footer>
-    © 2026 SpinnyWFC — not by your average person (i think)
-</footer>
+        <!-- BIG BUTTONS -->
+        <a class="bigbutton" href="connect.html">Get Started</a>
+        <a class="bigbutton" href="announcements.html">Announcements</a>
+        <a class="bigbutton" href="supported.html">Supported Games</a>
+        <a class="bigbutton" href="errors.html">Error Codex</a>
+        <a class="bigbutton" href="about.html">About SpinnyWFC</a>
+        <a class="bigbutton" href="legal.html">Legal Info</a>
+
+        <!-- NEWS FEED -->
+        <div class="newsbox">
+            <h2 style="color:#00ff66;">Latest Announcements</h2>
+
+            <div class="newsitem">
+                <strong>[02/10/2026] Homepage Rebuilt</strong><br>
+                I made this stuff look like the gamespy wesbite. http://gamespy.com
+            </div>
+
+            <div class="newsitem">
+                <strong>[02/09/2026] Black Ops DS Online Test</strong><br>
+                This has nothing to do with SpinnyWFC, but I got Black Ops on the DS on Nintendo WFC for some reason..
+            </div>
+
+            <div class="newsitem">
+                <strong>[02/08/2026] Best possible sign for UNO</strong><br>
+                Big announcement, NATNEG talked to UNO DSiWare but, it's garbage because it didn't work.
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footer">
+            SpinnyWFC — Keeping retro things alive(and more garbage on the way)
+        </div>
+
+    </div>
 
 </body>
 </html>
-
-
-

@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Drive Smash - Pro Edition</title>
+    <title>Super Spinny Brawl</title>
     <style>
         body { background: #0a0a0c; color: #00ffcc; text-align: center; font-family: 'Courier New', monospace; overflow: hidden; margin: 0; }
         canvas { background: #050505; border: 2px solid #00ffcc; display: none; margin: 10px auto; box-shadow: 0 0 30px #004433; }
         .hud { display: none; justify-content: center; align-items: center; gap: 50px; font-size: 35px; margin-top: 20px; text-shadow: 0 0 10px #00ffcc; }
         .timer { font-size: 50px; color: #fff; border: 2px solid #fff; padding: 5px 20px; min-width: 100px; }
         .p1 { color: #00d2ff; } .p2 { color: #ff0055; }
-        .win-msg, #countdown { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 80px; background: rgba(0,0,0,0.8); padding: 40px; display: none; border: 2px solid #00ffcc; z-index: 10; color: #fff; }
+        .win-msg, #countdown { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; background: rgba(0,0,0,0.9); padding: 40px; display: none; border: 2px solid #00ffcc; z-index: 10; color: #fff; text-align: center; }
         
-        #menu { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 2px solid #00ffcc; background: #050505; padding: 40px; box-shadow: 0 0 50px #004433; }
+        #menu { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 2px solid #00ffcc; background: #050505; padding: 40px; box-shadow: 0 0 50px #004433; z-index: 20; }
         .btn { display: block; width: 280px; padding: 12px; margin: 10px auto; background: transparent; color: #00ffcc; border: 1px solid #00ffcc; font-family: 'Courier New', monospace; font-size: 18px; cursor: pointer; transition: 0.2s; }
         .btn:hover { background: #00ffcc; color: #000; }
         .diff-container { display: flex; gap: 5px; justify-content: center; margin-bottom: 20px; }
@@ -21,12 +21,12 @@
 </head>
 <body>
     <div id="menu">
-        <h1>DRIVE SMASH</h1>
+        <h1>SUPER SPINNY BRAWL</h1>
         <p>AI DIFFICULTY</p>
         <div class="diff-container">
             <button class="diff-btn" onclick="setDiff(0.5, 60, this)">EASY</button>
             <button class="diff-btn active" onclick="setDiff(1, 35, this)">MED</button>
-            <button class="diff-btn" onclick="setDiff(1.5, 15, this)">HARD</button>
+            <button class="diff-btn" onclick="setDiff(1.6, 15, this)">HARD</button>
         </div>
         <button class="btn" onclick="preStart(true)">1 PLAYER (VS BOT)</button>
         <button class="btn" onclick="preStart(false)">2 PLAYERS (LOCAL)</button>
@@ -48,6 +48,7 @@ let gameRunning = false;
 let botSpeedMult = 1;
 let botAggression = 35;
 let timeLeft = 60;
+let particles = [];
 let p1, p2;
 
 function setDiff(speed, aggro, btn) {
@@ -73,11 +74,9 @@ function preStart(vsBot) {
 
     const cdInterval = setInterval(() => {
         count--;
-        if (count > 0) {
-            cdDiv.innerText = count;
-        } else if (count === 0) {
-            cdDiv.innerText = "OVERWRITE!";
-        } else {
+        if (count > 0) cdDiv.innerText = count;
+        else if (count === 0) cdDiv.innerText = "OVERWRITE!";
+        else {
             clearInterval(cdInterval);
             cdDiv.style.display = "none";
             gameRunning = true;
@@ -94,8 +93,8 @@ function startTimer() {
             document.getElementById("timer").innerText = timeLeft;
             if (timeLeft <= 0) {
                 gameRunning = false;
-                const winner = p1.percent < p2.percent ? "DRIVE C: WINS" : (p2.isBot ? "BOT WINS" : "DRIVE D: WINS");
-                endGame(winner);
+                const winnerText = p1.percent < p2.percent ? "DRIVE C: WINS" : (p2.isBot ? "BOT WINS" : "DRIVE D: WINS");
+                endGame(winnerText);
                 clearInterval(timerInterval);
             }
         }
@@ -125,24 +124,29 @@ class Fighter {
             } else { this.canJump = true; }
             if (keys[this.controls.attack]) { this.performAttack(opponent); keys[this.controls.attack] = false; }
         }
+        
         this.vy += 0.55; this.x += this.vx; this.y += this.vy;
+        
         if (this.x + this.w > 200 && this.x < 700 && this.y + this.h > 400 && this.y < 420 && this.vy >= 0) {
             this.y = 400 - this.h; this.vy = 0; this.jumpCount = 0;
         }
-        if (this.x < -150 || this.x > canvas.width + 150 || this.y < -150 || this.y > canvas.height + 150) this.respawn();
+        
+        if (this.x < -150 || this.x > canvas.width + 150 || this.y < -150 || this.y > canvas.height + 150) {
+            this.respawn();
+        }
     }
 
     handleAI(target) {
-        let speed = 4 * botSpeedMult;
-        if (this.x < 210) { this.vx = speed; if(this.jumpCount < 2) { this.vy = -13; this.jumpCount++; } }
-        else if (this.x > 640) { this.vx = -speed; if(this.jumpCount < 2) { this.vy = -13; this.jumpCount++; } }
+        let speed = 4.5 * botSpeedMult;
+        if (this.x < 220) { this.vx = speed; if(this.jumpCount < 2) { this.vy = -13; this.jumpCount++; } }
+        else if (this.x > 630) { this.vx = -speed; if(this.jumpCount < 2) { this.vy = -13; this.jumpCount++; } }
         else {
             if (target.x < this.x - 30) { this.vx = -speed; this.dir = -1; }
             else if (target.x > this.x + 30) { this.vx = speed; this.dir = 1; }
             else { this.vx *= 0.8; }
         }
         this.attackCooldown--;
-        if (Math.abs(target.x - this.x) < 70 && this.attackCooldown <= 0) {
+        if (Math.abs(target.x - this.x) < 70 && Math.abs(this.y - target.y) < 50 && this.attackCooldown <= 0) {
             this.performAttack(target);
             this.attackCooldown = botAggression;
         }
@@ -150,7 +154,7 @@ class Fighter {
 
     performAttack(opponent) {
         let hitX = this.x + (this.dir === 1 ? 40 : -40);
-        if (hitX < opponent.x + opponent.w && hitX + 30 > opponent.x && Math.abs(this.y - opponent.y) < 50) {
+        if (hitX < opponent.x + opponent.w && hitX + 30 > opponent.x && Math.abs(this.y - opponent.y) < 60) {
             opponent.takeHit(this.dir);
         }
     }
@@ -160,12 +164,16 @@ class Fighter {
         let kb = 5 + (this.percent * 0.25);
         this.vx = direction * kb; this.vy = -kb * 0.4;
         document.getElementById(this.name + "%").innerText = this.percent;
+        for(let i=0; i<5; i++) particles.push({x: this.x+22, y: this.y+30, vx: (Math.random()-0.5)*10, vy: (Math.random()-0.5)*10, alpha: 1, color: this.color, text: "!"});
     }
 
     respawn() {
-        this.percent += 25;
+        this.percent = 0; 
         this.x = 450; this.y = 100; this.vx = 0; this.vy = 0; 
         document.getElementById(this.name + "%").innerText = this.percent;
+        for (let i = 0; i < 20; i++) {
+            particles.push({x: 450, y: 100, vx: (Math.random()-0.5)*15, vy: (Math.random()-0.5)*15, alpha: 1, color: "#fff", text: "0"});
+        }
     }
 
     draw() {
@@ -186,15 +194,23 @@ function endGame(winner) {
 }
 
 const keys = {};
-window.onkeydown = (e) => { keys[e.key] = true; if(["ArrowUp","ArrowDown"," "].includes(e.key)) e.preventDefault(); };
+window.onkeydown = (e) => { keys[e.key] = true; if(["ArrowUp","ArrowDown"," ","Enter"].includes(e.key)) e.preventDefault(); };
 window.onkeyup = (e) => keys[e.key] = false;
 
 function loop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#002211"; ctx.fillRect(200, 400, 500, 15);
     ctx.strokeStyle = "#00ffcc"; ctx.strokeRect(200, 400, 500, 15);
+    
     p1.update(keys, p2); p2.update(keys, p1);
     p1.draw(); p2.draw();
+
+    for (let i = particles.length - 1; i >= 0; i--) {
+        let p = particles[i]; p.x += p.vx; p.y += p.vy; p.alpha -= 0.03;
+        ctx.globalAlpha = p.alpha; ctx.fillStyle = p.color; ctx.fillText(p.text, p.x, p.y);
+        if (p.alpha <= 0) particles.splice(i, 1);
+    }
+    ctx.globalAlpha = 1;
     if (gameRunning) requestAnimationFrame(loop);
 }
 </script>

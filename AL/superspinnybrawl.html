@@ -2,22 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Super Spinny Brawl</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Super Spinny Braw</title>
     <style>
-        body { background: #0a0a0c; color: #00ffcc; text-align: center; font-family: 'Courier New', monospace; overflow: hidden; margin: 0; }
-        canvas { background: #050505; border: 2px solid #00ffcc; display: none; margin: 10px auto; box-shadow: 0 0 30px #004433; }
-        .hud { display: none; justify-content: center; align-items: center; gap: 50px; font-size: 35px; margin-top: 20px; text-shadow: 0 0 10px #00ffcc; }
-        .timer { font-size: 50px; color: #fff; border: 2px solid #fff; padding: 5px 20px; min-width: 100px; }
+        body { background: #0a0a0c; color: #00ffcc; text-align: center; font-family: 'Courier New', monospace; overflow: hidden; margin: 0; touch-action: none; }
+        canvas { background: #050505; border: 2px solid #00ffcc; display: none; margin: 10px auto; box-shadow: 0 0 30px #004433; max-width: 95vw; max-height: 60vh; }
+        .hud { display: none; justify-content: center; align-items: center; gap: 30px; font-size: 25px; margin-top: 10px; text-shadow: 0 0 10px #00ffcc; }
+        .timer { font-size: 35px; color: #fff; border: 2px solid #fff; padding: 5px 15px; min-width: 80px; }
         .p1 { color: #00d2ff; } .p2 { color: #ff0055; }
-        .win-msg, #countdown, #pauseMenu { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; background: rgba(0,0,0,0.95); padding: 40px; display: none; border: 2px solid #00ffcc; z-index: 100; color: #fff; text-align: center; }
+        .win-msg, #countdown, #pauseMenu { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; background: rgba(0,0,0,0.95); padding: 30px; display: none; border: 2px solid #00ffcc; z-index: 100; color: #fff; text-align: center; border-radius: 10px; }
         
-        #menu { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 2px solid #00ffcc; background: #050505; padding: 40px; box-shadow: 0 0 50px #004433; z-index: 20; }
-        .btn { display: block; width: 280px; padding: 12px; margin: 10px auto; background: transparent; color: #00ffcc; border: 1px solid #00ffcc; font-family: 'Courier New', monospace; font-size: 18px; cursor: pointer; transition: 0.2s; }
-        .btn:hover { background: #00ffcc; color: #000; }
+        #menu { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 2px solid #00ffcc; background: #050505; padding: 30px; box-shadow: 0 0 50px #004433; z-index: 20; width: 80%; max-width: 400px; }
+        .btn { display: block; width: 100%; padding: 15px; margin: 10px auto; background: transparent; color: #00ffcc; border: 1px solid #00ffcc; font-family: 'Courier New', monospace; font-size: 18px; cursor: pointer; }
         .diff-container { display: flex; gap: 5px; justify-content: center; margin-bottom: 20px; }
-        .diff-btn { padding: 5px 10px; font-size: 12px; border: 1px solid #666; color: #666; cursor: pointer; background: none; }
+        .diff-btn { padding: 8px; font-size: 12px; border: 1px solid #666; color: #666; background: none; flex: 1; }
         .diff-btn.active { border-color: #00ffcc; color: #00ffcc; }
-        .pause-title { font-size: 40px; color: #00ffcc; margin-bottom: 20px; }
+
+        /* Touch Controls */
+        #touchUI { position: fixed; bottom: 20px; left: 0; width: 100%; display: none; justify-content: space-between; padding: 0 20px; box-sizing: border-box; pointer-events: none; z-index: 50; }
+        .t-group { display: flex; gap: 15px; pointer-events: auto; }
+        .t-btn { width: 70px; height: 70px; background: rgba(0, 255, 204, 0.15); border: 2px solid #00ffcc; border-radius: 50%; color: #00ffcc; font-size: 30px; display: flex; align-items: center; justify-content: center; user-select: none; -webkit-user-select: none; }
+        .t-btn:active { background: rgba(0, 255, 204, 0.4); transform: scale(1.1); }
+        #tPause { position: fixed; top: 15px; right: 15px; width: 50px; height: 50px; border-radius: 5px; font-size: 18px; pointer-events: auto; }
     </style>
 </head>
 <body>
@@ -29,15 +35,26 @@
             <button class="diff-btn active" onclick="setDiff(1, 35, this)">MED</button>
             <button class="diff-btn" onclick="setDiff(1.6, 15, this)">HARD</button>
         </div>
-        <button class="btn" onclick="preStart(true)">1 PLAYER (VS BOT)</button>
-        <button class="btn" onclick="preStart(false)">2 PLAYERS (LOCAL)</button>
+        <button class="btn" onclick="preStart(true)">1P VS BOT</button>
+        <button class="btn" onclick="preStart(false)">2P LOCAL</button>
     </div>
 
-    <!-- Pause Menu -->
     <div id="pauseMenu">
-        <div class="pause-title">Safe Menu</div>
+        <div style="font-size: 25px; margin-bottom: 15px;">PAUSED</div>
         <button class="btn" onclick="togglePause()">RESUME</button>
-        <button class="btn" onclick="location.reload()">MAIN MENU</button>
+        <button class="btn" onclick="location.reload()">MENU</button>
+    </div>
+
+    <div id="touchUI">
+        <div class="t-group">
+            <div class="t-btn" id="btnLeft">←</div>
+            <div class="t-btn" id="btnRight">→</div>
+        </div>
+        <div class="t-group">
+            <div class="t-btn" id="btnUp">↑</div>
+            <div class="t-btn" id="btnAtk">⚔️</div>
+        </div>
+        <div class="t-btn" id="tPause" onclick="togglePause()">II</div>
     </div>
 
     <div id="countdown"></div>
@@ -52,18 +69,19 @@
 <script>
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
-let gameRunning = false;
-let isPaused = false;
-let botSpeedMult = 1;
-let botAggression = 35;
-let timeLeft = 60;
-let particles = [];
-let p1, p2;
-let timerInterval;
+let gameRunning = false, isPaused = false, botSpeedMult = 1, botAggression = 35, timeLeft = 60, particles = [], p1, p2, timerInterval;
+const keys = {};
+
+// Touch Logic
+function bindTouch(id, key) {
+    const el = document.getElementById(id);
+    el.addEventListener('touchstart', (e) => { e.preventDefault(); keys[key] = true; });
+    el.addEventListener('touchend', (e) => { e.preventDefault(); keys[key] = false; });
+}
+bindTouch('btnLeft', 'a'); bindTouch('btnRight', 'd'); bindTouch('btnUp', 'w'); bindTouch('btnAtk', ' ');
 
 function setDiff(speed, aggro, btn) {
-    botSpeedMult = speed;
-    botAggression = aggro;
+    botSpeedMult = speed; botAggression = aggro;
     document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 }
@@ -72,6 +90,7 @@ function preStart(vsBot) {
     document.getElementById("menu").style.display = "none";
     document.getElementById("game").style.display = "block";
     document.getElementById("hud").style.display = "flex";
+    document.getElementById("touchUI").style.display = "flex";
     
     p1 = new Fighter(300, "#00d2ff", {up:'w', left:'a', right:'d', attack:' '}, "p1", "C:");
     p2 = new Fighter(600, "#ff0055", {up:'ArrowUp', left:'ArrowLeft', right:'ArrowRight', attack:'Enter'}, "p2", vsBot ? "BOT" : "D:", vsBot);
@@ -85,13 +104,10 @@ function preStart(vsBot) {
     const cdInterval = setInterval(() => {
         count--;
         if (count > 0) cdDiv.innerText = count;
-        else if (count === 0) cdDiv.innerText = "OVERWRITE!";
+        else if (count === 0) cdDiv.innerText = "GO!";
         else {
-            clearInterval(cdInterval);
-            cdDiv.style.display = "none";
-            gameRunning = true;
-            startTimer();
-            loop();
+            clearInterval(cdInterval); cdDiv.style.display = "none";
+            gameRunning = true; startTimer(); loop();
         }
     }, 800);
 }
@@ -103,8 +119,7 @@ function startTimer() {
             document.getElementById("timer").innerText = timeLeft;
             if (timeLeft <= 0) {
                 gameRunning = false;
-                const winnerText = p1.percent < p2.percent ? "DRIVE C: WINS" : (p2.isBot ? "BOT WINS" : "DRIVE D: WINS");
-                endGame(winnerText);
+                endGame(p1.percent < p2.percent ? "P1 WINS" : "P2 WINS");
                 clearInterval(timerInterval);
             }
         }
@@ -122,8 +137,7 @@ class Fighter {
         this.x = x; this.y = 200; this.w = 45; this.h = 60;
         this.color = color; this.controls = controls; this.name = name; this.label = label;
         this.vx = 0; this.vy = 0; this.percent = 0; this.isBot = isBot;
-        this.jumpCount = 0; this.maxJumps = 2; this.dir = 1; this.canJump = true;
-        this.attackCooldown = 0;
+        this.jumpCount = 0; this.maxJumps = 2; this.dir = 1; this.canJump = true; this.attackCooldown = 0;
     }
 
     update(keys, opponent) {
@@ -140,16 +154,11 @@ class Fighter {
             } else { this.canJump = true; }
             if (keys[this.controls.attack]) { this.performAttack(opponent); keys[this.controls.attack] = false; }
         }
-        
         this.vy += 0.55; this.x += this.vx; this.y += this.vy;
-        
         if (this.x + this.w > 200 && this.x < 700 && this.y + this.h > 400 && this.y < 420 && this.vy >= 0) {
             this.y = 400 - this.h; this.vy = 0; this.jumpCount = 0;
         }
-        
-        if (this.x < -150 || this.x > canvas.width + 150 || this.y < -150 || this.y > canvas.height + 150) {
-            this.respawn();
-        }
+        if (this.x < -150 || this.x > canvas.width + 150 || this.y < -150 || this.y > canvas.height + 150) this.respawn();
     }
 
     handleAI(target) {
@@ -163,16 +172,13 @@ class Fighter {
         }
         this.attackCooldown--;
         if (Math.abs(target.x - this.x) < 70 && Math.abs(this.y - target.y) < 50 && this.attackCooldown <= 0) {
-            this.performAttack(target);
-            this.attackCooldown = botAggression;
+            this.performAttack(target); this.attackCooldown = botAggression;
         }
     }
 
     performAttack(opponent) {
         let hitX = this.x + (this.dir === 1 ? 40 : -40);
-        if (hitX < opponent.x + opponent.w && hitX + 30 > opponent.x && Math.abs(this.y - opponent.y) < 60) {
-            opponent.takeHit(this.dir);
-        }
+        if (hitX < opponent.x + opponent.w && hitX + 30 > opponent.x && Math.abs(this.y - opponent.y) < 60) opponent.takeHit(this.dir);
     }
 
     takeHit(direction) {
@@ -183,17 +189,13 @@ class Fighter {
     }
 
     respawn() {
-        this.percent = 0; 
-        this.x = 450; this.y = 100; this.vx = 0; this.vy = 0; 
-        document.getElementById(this.name + "%").innerText = this.percent;
-        for (let i = 0; i < 20; i++) {
-            particles.push({x: 450, y: 100, vx: (Math.random()-0.5)*15, vy: (Math.random()-0.5)*15, alpha: 1, color: "#fff", text: "0"});
-        }
+        this.percent = 0; this.x = 450; this.y = 100; this.vx = 0; this.vy = 0;
+        document.getElementById(this.name + "%").innerText = 0;
+        for (let i = 0; i < 15; i++) particles.push({x: 450, y: 100, vx: (Math.random()-0.5)*10, vy: (Math.random()-0.5)*10, a: 1});
     }
 
     draw() {
-        ctx.save();
-        ctx.translate(this.x, this.y);
+        ctx.save(); ctx.translate(this.x, this.y);
         ctx.fillStyle = "#333"; ctx.fillRect(0, 0, this.w, this.h);
         ctx.strokeStyle = this.color; ctx.lineWidth = 2; ctx.strokeRect(0, 0, this.w, this.h);
         ctx.fillStyle = "white"; ctx.font = "bold 10px Courier"; ctx.fillText(this.label, 5, 15);
@@ -201,33 +203,26 @@ class Fighter {
     }
 }
 
-function endGame(winner) {
-    const msg = document.getElementById("winMsg");
-    msg.innerHTML = "TIME UP!<br><span style='font-size:30px'>" + winner + "</span>";
-    msg.style.display = "block";
+function endGame(w) {
+    const m = document.getElementById("winMsg");
+    m.innerHTML = "TIME UP!<br><span style='font-size:25px'>"+w+"</span>";
+    m.style.display = "block";
     setTimeout(() => location.reload(), 4000);
 }
 
-const keys = {};
-window.onkeydown = (e) => { 
-    if (e.key.toLowerCase() === 'b') togglePause();
-    keys[e.key] = true; 
-    if(["ArrowUp","ArrowDown"," ","Enter"].includes(e.key)) e.preventDefault(); 
-};
+window.onkeydown = (e) => { keys[e.key] = true; if(e.key.toLowerCase() === 'b') togglePause(); };
 window.onkeyup = (e) => keys[e.key] = false;
 
 function loop() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#002211"; ctx.fillRect(200, 400, 500, 15);
     ctx.strokeStyle = "#00ffcc"; ctx.strokeRect(200, 400, 500, 15);
-    
     p1.update(keys, p2); p2.update(keys, p1);
     p1.draw(); p2.draw();
-
     for (let i = particles.length - 1; i >= 0; i--) {
-        let p = particles[i]; p.x += p.vx; p.y += p.vy; p.alpha -= 0.03;
-        ctx.globalAlpha = p.alpha; ctx.fillStyle = p.color; ctx.fillText(p.text, p.x, p.y);
-        if (p.alpha <= 0) particles.splice(i, 1);
+        let p = particles[i]; p.x += p.vx; p.y += p.vy; p.a -= 0.02;
+        ctx.globalAlpha = p.a; ctx.fillStyle = "#fff"; ctx.fillRect(p.x, p.y, 3, 3);
+        if (p.a <= 0) particles.splice(i, 1);
     }
     ctx.globalAlpha = 1;
     if (gameRunning) requestAnimationFrame(loop);

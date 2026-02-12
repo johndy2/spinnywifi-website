@@ -210,6 +210,21 @@
 <canvas id="game" width="900" height="500"></canvas>
 
 <script>
+
+  const socket = new WebSocket("wss://superspinnybrawlserver.onrender.com");
+
+  socket.onopen = () => {
+    console.log("Connected to server");
+  };
+
+  socket.onmessage = (event) => {
+    console.log("Received:", event.data);
+  };
+
+  // ⭐ ALL your existing code stays below this line ⭐
+
+
+
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 

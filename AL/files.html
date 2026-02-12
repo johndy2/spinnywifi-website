@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hyper-Loop</title>
+    <style>
+        body, html { margin: 0; padding: 0; background: #050505; overflow: hidden; font-family: 'Courier New', monospace; }
+        #canvas { display: block; }
+        .ui { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #0ff; text-align: center; pointer-events: none; }
+        .glitch { font-size: 5rem; font-weight: bold; text-transform: uppercase; letter-spacing: 10px; animation: glitch 1s linear infinite; }
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px,0) skew(0deg); }
+            4%, 60% { transform: translate(-2px,0) skew(0deg); }
+            62% { transform: translate(0,0) skew(5deg); }
+        }
+        .glitch:before, .glitch:after { content: 'HYPER-LOOP'; position: absolute; left: 0; }
+        .glitch:before { animation: glitchTop 1s linear infinite; clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%); }
+        .glitch:after { animation: glitchBot 1.5s linear infinite; clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%); }
+        @keyframes glitchTop { 2%, 64% { transform: translate(2px,-2px); } 4%, 60% { transform: translate(-2px,2px); } }
+        @keyframes glitchBot { 2%, 64% { transform: translate(-2px,2px); } 4%, 60% { transform: translate(-2px,-2px); } }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="ui">
+        <div class="glitch">Hyper-Loop</div>
+        <p>SCROLL TO ACCELERATE | MOVE TO WARP</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let w, h, stars = [];
+        let speed = 2;
+
+        const init = () => {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = window.innerHeight;
+            stars = [];
+            for(let i=0; i<1500; i++) {
+                stars.push({
+                    x: Math.random() * w - w/2,
+                    y: Math.random() * h - h/2,
+                    z: Math.random() * w,
+                    o: Math.random() * 0.8 + 0.2
+                });
+            }
+        };
+
+        const draw = () => {
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.2)';
+            ctx.fillRect(0, 0, w, h);
+            ctx.translate(w/2, h/2);
+
+            stars.forEach(s => {
+                s.z -= speed;
+                if(s.z <= 0) s.z = w;
+                
+                const sx = (s.x / s.z) * w;
+                const sy = (s.y / s.z) * h;
+                const size = (1 - s.z / w) * 3;
+                
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(0, 255, 255, ${s.o})`;
+                ctx.arc(sx, sy, size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            ctx.translate(-w/2, -h/2);
+            requestAnimationFrame(draw);
+        };
+
+        window.addEventListener('wheel', (e) => {
+            speed = Math.min(Math.max(speed + e.deltaY * 0.01, 1), 50);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            stars.forEach(s => {
+                s.x += (e.clientX - w/2) * 0.001;
+                s.y += (e.clientY - h/2) * 0.001;
+            });
+        });
+
+        window.addEventListener('resize', init);
+        init();
+        draw();
+    </script>
+</body>
+</html>

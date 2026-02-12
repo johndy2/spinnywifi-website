@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mario vs Donkey Kong - HTML Prototype</title>
+    <style>
+        body { margin: 0; background: #222; display: flex; justify-content: center; align-items: center; height: 100vh; color: white; font-family: sans-serif; overflow: hidden; }
+        canvas { background: #000; border: 4px solid #555; }
+        #ui { position: absolute; top: 20px; text-align: center; width: 100%; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <h1>MARIO vs DK</h1>
+        <p>ARROWS to Move & Jump | Avoid the Barrels!</p>
+    </div>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// --- Game Constants ---
+const GRAVITY = 0.6;
+const JUMP_FORCE = -12;
+const SPEED = 4;
+
+// --- State Variables ---
+let mario = { x: 50, y: 500, w: 30, h: 40, dy: 0, grounded: false, color: '#ff0000' };
+let barrels = [];
+let platforms = [
+    { x: 0, y: 580, w: 800, h: 20 },   // Ground
+    { x: 100, y: 460, w: 600, h: 20 }, // Mid 1
+    { x: 50, y: 340, w: 600, h: 20 },  // Mid 2
+    { x: 150, y: 220, w: 500, h: 20 }  // Top (DK's Roost)
+];
+let dk = { x: 150, y: 150, w: 60, h: 70, color: '#8b4513' };
+let keys = {};
+let frameCount = 0;
+let gameOver = false;
+
+// --- Input Handling ---
+window.addEventListener('keydown', e => keys[e.code] = true);
+window.addEventListener('keyup', e => keys[e.code] = false);
+
+function spawnBarrel() {
+    barrels.push({ x: dk.x + 30, y: dk.y + 30, r: 10, dx: 3, dy: 0 });
+}
+
+function update() {
+    if (gameOver) return;
+
+    // Mario Movement
+    if (keys['ArrowLeft']) mario.x -= SPEED;
+    if (keys['ArrowRight']) mario.x += SPEED;
+    if (keys['ArrowUp'] && mario.grounded) {
+        mario.dy = JUMP_FORCE;
+        mario.grounded = false;
+    }
+
+    // Apply Gravity
+    mario.dy += GRAVITY;
+    mario.y += mario.dy;
+    mario.grounded = false;
+
+    // Platform Collision
+    platforms.forEach(p => {
+        if (mario.x < p.x + p.w && mario.x + mario.w > p.x &&
+            mario.y + mario.h > p.y && mario.y + mario.h < p.y + p.h + 10 && mario.dy >= 0) {
+            mario.y = p.y - mario.h;
+            mario.dy = 0;
+            mario.grounded = true;
+        }
+    });
+
+    // DK Barrel Spawning
+    frameCount++;
+    if (frameCount % 100 === 0) spawnBarrel();
+
+    // Barrel Logic
+    barrels.forEach((b, index) => {
+        b.y += b.dy;
+        b.dy += GRAVITY * 0.5;
+        b.x += b.dx;
+
+        // Barrel Platform Collision
+        platforms.forEach(p => {
+            if (b.x > p.x && b.x < p.x + p.w && b.y + b.r > p.y && b.y + b.r < p.y + p.h) {
+                b.y = p.y - b.r;
+                b.dy = 0;
+            }
+        });
+
+        // Wall Bounce
+        if (b.x + b.r > canvas.width || b.x - b.r < 0) b.dx *= -1;
+
+        // Collision with Mario
+        let dist = Math.hypot(mario.x + 15 - b.x, mario.y + 20 - b.y);
+        if (dist < b.r + 15) {
+            gameOver = true;
+            alert("Game Over! Donkey Kong wins.");
+            location.reload();
+        }
+
+        // Remove off-screen barrels
+        if (b.y > canvas.height) barrels.splice(index, 1);
+    });
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw Platforms
+    ctx.fillStyle = '#555';
+    platforms.forEach(p => ctx.fillRect(p.x, p.y, p.w, p.h));
+
+    // Draw Donkey Kong
+    ctx.fillStyle = dk.color;
+    ctx.fillRect(dk.x, dk.y, dk.w, dk.h);
+    ctx.fillStyle = 'white';
+    ctx.fillText("DK", dk.x + 20, dk.y + 40);
+
+    // Draw Mario
+    ctx.fillStyle = mario.color;
+    ctx.fillRect(mario.x, mario.y, mario.w, mario.h);
+
+    // Draw Barrels
+    ctx.fillStyle = '#cd853f';
+    barrels.forEach(b => {
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+    });
+}
+
+function loop() {
+    update();
+    draw();
+    requestAnimationFrame(loop);
+}
+
+loop();
+</script>
+</body>
+</html>

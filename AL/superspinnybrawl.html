@@ -222,7 +222,13 @@
   };
 
   // ⭐ ALL your existing code stays below this line ⭐
+function quickMatch() {
+  // change the button text
+  document.querySelector('button[onclick="quickMatch()"]').textContent = "SEARCHING...";
 
+  // send quick match request to server
+  socket.send("quick_match");
+}
 
 
 const canvas = document.getElementById("game");

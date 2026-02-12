@@ -9,7 +9,7 @@
         .hud { display: none; justify-content: center; align-items: center; gap: 50px; font-size: 35px; margin-top: 20px; text-shadow: 0 0 10px #00ffcc; }
         .timer { font-size: 50px; color: #fff; border: 2px solid #fff; padding: 5px 20px; min-width: 100px; }
         .p1 { color: #00d2ff; } .p2 { color: #ff0055; }
-        .win-msg, #countdown { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; background: rgba(0,0,0,0.9); padding: 40px; display: none; border: 2px solid #00ffcc; z-index: 10; color: #fff; text-align: center; }
+        .win-msg, #countdown, #pauseMenu { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; background: rgba(0,0,0,0.95); padding: 40px; display: none; border: 2px solid #00ffcc; z-index: 100; color: #fff; text-align: center; }
         
         #menu { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 2px solid #00ffcc; background: #050505; padding: 40px; box-shadow: 0 0 50px #004433; z-index: 20; }
         .btn { display: block; width: 280px; padding: 12px; margin: 10px auto; background: transparent; color: #00ffcc; border: 1px solid #00ffcc; font-family: 'Courier New', monospace; font-size: 18px; cursor: pointer; transition: 0.2s; }
@@ -17,11 +17,12 @@
         .diff-container { display: flex; gap: 5px; justify-content: center; margin-bottom: 20px; }
         .diff-btn { padding: 5px 10px; font-size: 12px; border: 1px solid #666; color: #666; cursor: pointer; background: none; }
         .diff-btn.active { border-color: #00ffcc; color: #00ffcc; }
+        .pause-title { font-size: 40px; color: #00ffcc; margin-bottom: 20px; }
     </style>
 </head>
 <body>
     <div id="menu">
-        <h1>SUPER SPINNY BRAWL</h1>
+        <h1>SUPER SPINNY BRAWL/h1>
         <p>AI DIFFICULTY</p>
         <div class="diff-container">
             <button class="diff-btn" onclick="setDiff(0.5, 60, this)">EASY</button>
@@ -30,6 +31,13 @@
         </div>
         <button class="btn" onclick="preStart(true)">1 PLAYER (VS BOT)</button>
         <button class="btn" onclick="preStart(false)">2 PLAYERS (LOCAL)</button>
+    </div>
+
+    <!-- Pause Menu -->
+    <div id="pauseMenu">
+        <div class="pause-title">PROCESS SUSPENDED</div>
+        <button class="btn" onclick="togglePause()">RESUME</button>
+        <button class="btn" onclick="location.reload()">MAIN MENU</button>
     </div>
 
     <div id="countdown"></div>
@@ -45,11 +53,13 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 let gameRunning = false;
+let isPaused = false;
 let botSpeedMult = 1;
 let botAggression = 35;
 let timeLeft = 60;
 let particles = [];
 let p1, p2;
+let timerInterval;
 
 function setDiff(speed, aggro, btn) {
     botSpeedMult = speed;
@@ -87,8 +97,8 @@ function preStart(vsBot) {
 }
 
 function startTimer() {
-    const timerInterval = setInterval(() => {
-        if (gameRunning) {
+    timerInterval = setInterval(() => {
+        if (gameRunning && !isPaused) {
             timeLeft--;
             document.getElementById("timer").innerText = timeLeft;
             if (timeLeft <= 0) {
@@ -101,6 +111,12 @@ function startTimer() {
     }, 1000);
 }
 
+function togglePause() {
+    if (!gameRunning) return;
+    isPaused = !isPaused;
+    document.getElementById("pauseMenu").style.display = isPaused ? "block" : "none";
+}
+
 class Fighter {
     constructor(x, color, controls, name, label, isBot = false) {
         this.x = x; this.y = 200; this.w = 45; this.h = 60;
@@ -111,7 +127,7 @@ class Fighter {
     }
 
     update(keys, opponent) {
-        if (!gameRunning) return;
+        if (!gameRunning || isPaused) return;
         if (this.isBot) this.handleAI(opponent);
         else {
             if (keys[this.controls.left]) { this.vx = -5.5; this.dir = -1; }
@@ -164,7 +180,6 @@ class Fighter {
         let kb = 5 + (this.percent * 0.25);
         this.vx = direction * kb; this.vy = -kb * 0.4;
         document.getElementById(this.name + "%").innerText = this.percent;
-        for(let i=0; i<5; i++) particles.push({x: this.x+22, y: this.y+30, vx: (Math.random()-0.5)*10, vy: (Math.random()-0.5)*10, alpha: 1, color: this.color, text: "!"});
     }
 
     respawn() {
@@ -194,7 +209,11 @@ function endGame(winner) {
 }
 
 const keys = {};
-window.onkeydown = (e) => { keys[e.key] = true; if(["ArrowUp","ArrowDown"," ","Enter"].includes(e.key)) e.preventDefault(); };
+window.onkeydown = (e) => { 
+    if (e.key.toLowerCase() === 'b') togglePause();
+    keys[e.key] = true; 
+    if(["ArrowUp","ArrowDown"," ","Enter"].includes(e.key)) e.preventDefault(); 
+};
 window.onkeyup = (e) => keys[e.key] = false;
 
 function loop() {

@@ -1,588 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>SpinnyWFC – Supported Games</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpinnyWFC - Supported Games</title>
+<style>
+        /* Nintendo Wi-Fi Connection Modern Theme */
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #05060a;
-            color: white;
-            text-align: center;
-        }
+body {
+    background: #e6f0ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-        header {
-            background: linear-gradient(90deg, #00aaff, #0066ff);
-            padding: 20px;
-            font-size: 28px;
-            font-weight: bold;
-        }
+.header {
+    background: #0094ff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
 
-        nav {
-            background: #111;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            border-bottom: 2px solid #00aaff;
-        }
+.navbar {
+    background: #0078d7;
+    padding: 10px;
+    text-align: center;
+}
 
-        nav a {
-            color: #00aaff;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-        }
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
 
-        nav a:hover {
-            color: white;
-        }
+.navbar a:hover {
+    text-decoration: underline;
+}
 
-        h1 {
-            margin-top: 30px;
-            font-size: 36px;
-        }
+.container {
+    background: white;
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+}
 
-        .section-title {
-            font-size: 28px;
-            margin-top: 40px;
-            color: #00aaff;
-        }
+.game-entry {
+    margin-bottom: 25px;
+}
 
-        .table-wrap {
-            max-width: 1100px;
-            margin: 0 auto 40px auto;
-            overflow-x: auto;
-        }
+.badge {
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #111;
-            border: 2px solid #00aaff;
-            font-size: 14px;
-        }
-
-        th, td {
-            padding: 8px 10px;
-            border-bottom: 1px solid #00aaff33;
-        }
-
-        th {
-            background: #002244;
-            font-size: 15px;
-        }
-
-        tr:nth-child(even) {
-            background: #151515;
-        }
-
-        .status {
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .testing {
-            color: #ffcc00;
-        }
-
-        .mascot {
-            font-size: 18px;
-            margin-right: 4px;
-        }
-
-        footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: #111;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-    </style>
+.badge-nds { background: #2ecc71; }      /* Green */
+.badge-dsi { background: #f1c40f; }      /* Yellow */
+.badge-wii { background: #ff69b4; }      /* Pink */
+.badge-wiiware { background: #e67e22; }  /* Orange */
+</style>
 </head>
-
 <body>
 
-<header>
-    SpinnyWFC – Supported Games
-</header>
+<div class="header">
+    SpinnyWFC — Supported Games
+</div>
 
-<nav>
+<div class="navbar">
     <a href="index.html">Home</a>
     <a href="supported.html">Supported Games</a>
-    <a href="errors.html">Error Codex</a>
+    <a href="news.html">News</a>
+    <a href="support.html">Support</a>
     <a href="about.html">About</a>
-    <a href="legal.html">Legal</a>
-</nav>
-
-<h1>Supported Games</h1>
-<p>Every known game that can connect to SpinnyWFC. All currently marked as <strong>🧪 Testing</strong>.</p>
-
-<!-- NINTENDO DS -->
-<div class="section-title">Nintendo DS</div>
-<div class="table-wrap">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Game</th>
-            <th>Status</th>
-            <th>Profiles</th>
-            <th>Online</th>
-            <th>Total</th>
-            <th>Notes</th>
-        </tr>
-
-        <tr><td>1</td><td>100 Classic Book Collection</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>2</td><td>Advance Wars: Days of Ruin</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>3</td><td>Age of Empires: Mythologies</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>4</td><td>AMF Bowling Pinbusters!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>5</td><td>Animal Crossing: Wild World</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>6</td><td>Arkanoid DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>7</td><td>Atama wo Kitaete Asobu Taisen Yajirushi Puzzle: Puppyinu Vector One</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>8</td><td>Atsumare! Power Pro Kun no DS Kōshien</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>9</td><td>Avalon Code</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>10</td><td>Banushi Life Game: Winner's Circle</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>11</td><td>Blazer Drive</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>12</td><td>Bleach: The Blade of Fate</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>13</td><td>Bleach: Dark Souls</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>14</td><td>Bolt</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>15</td><td>Bomberman Land Touch!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>16</td><td>Bomberman Land Touch! 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>17</td><td>Bomberman Story DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>18</td><td>Call of Duty: World at War</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>19</td><td>Castlevania: Order of Ecclesia</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>20</td><td>Castlevania: Portrait of Ruin</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>21</td><td>The Chronicles of Narnia: Prince Caspian</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>22</td><td>Cid to Chocobo no Fushigi na Dungeon: Toki Wasure no Meikyū DS+</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>23</td><td>Chocobo to Mahō no Ehon: Majo to Shōjo to Gonin no Yūsha</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>24</td><td>Civilization Revolution</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>25</td><td>Club Penguin: Elite Penguin Force</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>26</td><td>Clubhouse Games</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>27</td><td>Contact</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>28</td><td>Cookie &amp; Cream</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>29</td><td>Culdcept DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>30</td><td>Custom Battler: Bomberman</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>31</td><td>Custom Beat Battle: Draglade 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>32</td><td>Custom Robo Arena</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>33</td><td>Derby Stallion DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>34</td><td>Diary Girl</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>35</td><td>Diddy Kong Racing DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>36</td><td>Digimon World Championship</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>37</td><td>Digimon World Dawn and Dusk</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>38</td><td>Digimon World DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>39</td><td>Dinosaur King</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>40</td><td>Disney Fairies: Tinker Bell</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>41</td><td>Disney Friends</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>42</td><td>Doraemon: Nobita no Shin Makai Daibouken DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>43</td><td>Draglade</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>44</td><td>Dragon Quest IX: Sentinels of the Starry Skies</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>45</td><td>Dragon Quest Monsters: Joker</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>46</td><td>Dragon Zakura DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>47</td><td>Dramatic Dungeon: Sakura Taisen - Kimi Aru ga Tame</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>48</td><td>Ducati Moto</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>49</td><td>Dungeon Explorer: Warriors of Ancient Arts</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>50</td><td>Eco Creatures: Save the Forest</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>51</td><td>Elebits: The Adventures of Kai and Zero</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>52</td><td>Ener-G Dance Squad</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>53</td><td>Exit DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>54</td><td>Fab 5 Soccer</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>55</td><td>FIFA 08</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>56</td><td>FIFA 09</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>57</td><td>FIFA Street 3</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>58</td><td>Final Fantasy III</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>59</td><td>Final Fantasy Crystal Chronicles: Ring of Fates</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>60</td><td>Final Fantasy Crystal Chronicles: Echoes of Time</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>61</td><td>Final Fantasy Fables: Chocobo Tales</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>62</td><td>Fire Emblem: Shadow Dragon</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>63</td><td>Fullmetal Alchemist: Trading Card Game</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>64</td><td>Shiren the Wanderer GB2: Magic Castle of the Desert</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>65</td><td>Gensen Table Game DS: Wi-Fi Taiou</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>66</td><td>Geometry Wars: Galaxies</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>67</td><td>GoPets: Vacation Island</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>68</td><td>Grand Theft Auto: Chinatown Wars</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>69</td><td>GRID</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>70</td><td>Hannah Montana: Music Jam</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>71</td><td>Harvest Moon DS: Grand Bazaar</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>72</td><td>Harvest Moon DS: Island of Happiness</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>73</td><td>Harvest Moon DS: Sunshine Islands</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>74</td><td>Heroes of Mana</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>75</td><td>High School Musical 3: Senior Year</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>76</td><td>Itadaki Street DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>77</td><td>Jam with the Band</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>78</td><td>Jet Impulse</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>79</td><td>Jump Ultimate Stars</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>80</td><td>Kaite Shabette Hajimeyou!: Monster Farm DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>81</td><td>Kanshū Nipon Jōshikiryoku Kentei Kyōkai: Imasara Hito ni wa Kikenai Otona no Jōshikiryoku Training DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>82</td><td>Kenkou Ouen Recipe 1000: DS Kondate Zenshuu</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>83</td><td>Kidou Gekidan Haro Ichiza: Gundam Mahjong +Z - Sarani Dekiru You ni Natta Na!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>84</td><td>Konductra</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>85</td><td>Kousoku Card Battle: Card Hero</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>86</td><td>The Legend of Zelda: Phantom Hourglass</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>87</td><td>Line Rider 2: Unbound</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>88</td><td>LostMagic</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>89</td><td>Luminous Arc</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>90</td><td>Luminous Arc 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>91</td><td>Madden NFL 08</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>92</td><td>Madden NFL 09</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>93</td><td>Magical Starsign</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>94</td><td>Mahjong Quest: Expeditions</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>95</td><td>Mahjong Fight Club DS: Wi-Fi Taiou</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>96</td><td>Major League Baseball 2K8 Fantasy All-Stars</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>97</td><td>Mario &amp; Sonic at the Olympic Games</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>98</td><td>Mario Kart DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>99</td><td>Mario vs. Donkey Kong 2: March of the Minis</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>100</td><td>Marvel Trading Card Game</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>101</td><td>Mawashite Tsunageru Touch Panic</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>102</td><td>Mechanic Master</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>103</td><td>Mega Man Star Force</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>104</td><td>Mega Man Star Force 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>105</td><td>Mega Man Star Force 3</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>106</td><td>Metroid Prime Hunters</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>107</td><td>Momotarou Dentetsu: 20-Shuunen</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>108</td><td>Monster Farm DS 2: Yomigaeru! Master Breeder Densetsu</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>109</td><td>Morita Shougi DS: Wi-Fi Taiou</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>110</td><td>My Secret World</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>111</td><td>Mystery Dungeon: Shiren the Wanderer</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>112</td><td>n+</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>113</td><td>Nanostray 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>114</td><td>Naruto: Path of the Ninja 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>115</td><td>Naruto Shippuden: Ninja Council 4</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>116</td><td>Nazonazo &amp; Quiz: Ittou Nyuukon Q Mate!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>117</td><td>Need for Speed: ProStreet</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>118</td><td>Need for Speed: Undercover</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>119</td><td>New International Track &amp; Field</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>120</td><td>Ninja Gaiden: Dragon Sword</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>121</td><td>Ninjatown</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>122</td><td>Nintendo DS Browser</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>123</td><td>Nobunaga no Yabou DS 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>124</td><td>Othello de Othello DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>125</td><td>Open Season</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>126</td><td>Pang: Magical Michael</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>127</td><td>Panzer Tactics DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>128</td><td>Personal Trainer: Walking</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>129</td><td>Phantasy Star Zero</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>130</td><td>Picross DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>131</td><td>Planet Puzzle League</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>132</td><td>Pokémon Black and White</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>133</td><td>Pokémon Black 2 and White 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>134</td><td>Pokémon Diamond and Pearl</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>135</td><td>Pokémon HeartGold and SoulSilver</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>136</td><td>Pokémon Mystery Dungeon: Explorers of Time and Explorers of Darkness</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>137</td><td>Pokémon Platinum</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>138</td><td>Pokémon Ranger: Shadows of Almia</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>139</td><td>Power Pro Kun Pocket 10</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>140</td><td>Power Pro Kun Pocket 11</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>141</td><td>Prey the Stars</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>142</td><td>Pro Evolution Soccer 2008</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>143</td><td>Pro Yakyū Famista DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>144</td><td>Professor Layton and the Curious Village</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>145</td><td>Professor Layton and the Diabolical Box</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>146</td><td>Professor Layton and the Last Specter</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>147</td><td>Professor Layton and the Unwound Future</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>148</td><td>Puyo Puyo 15th Anniversary</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>149</td><td>Quiz Magic Academy DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>150</td><td>Race Driver: Create and Race</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>151</td><td>Ragnarok Online DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>152</td><td>River King: Mystic Valley</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>153</td><td>Rune Factory: A Fantasy Harvest Moon</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>154</td><td>Rune Factory 2: A Fantasy Harvest Moon</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>155</td><td>Rune Factory 3: A Fantasy Harvest Moon</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>156</td><td>Sangokushi DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>157</td><td>Sangokushi DS 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>158</td><td>Sangokushi Taisen DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>159</td><td>Sankei Sports Kanshuu: Wi-Fi Baken Yosou Ryoku Training: Umania 2007 Nendo-ban</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>160</td><td>Scribblenauts</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>161</td><td>Skate It</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>162</td><td>Solatorobo: Red The Hunter</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>163</td><td>Sonic Rush Adventure</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>164</td><td>Space Invaders Extreme</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>165</td><td>Space Invaders Extreme 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>166</td><td>Space Puzzle Bobble</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>167</td><td>Spectrobes</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>168</td><td>Spectrobes: Beyond the Portals</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>169</td><td>Spore Creatures</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>170</td><td>Star Fox Command</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>171</td><td>Steal Princess</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>172</td><td>Sudoku DS: Nikoli no Sudoku Ketteiban</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>173</td><td>Suikoden Tierkreis</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>174</td><td>Surf's Up</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>175</td><td>Sūjin Taisen</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>176</td><td>Tank Beat</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>177</td><td>Tank Beat 2 Gekitotsu! Deutsch-gun vs. Rengou-gun</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>178</td><td>Tecmo Bowl: Kickoff</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>179</td><td>Tenchu: Dark Secret</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>180</td><td>Tenohira Gakushuu: Chikyuu no Narabe Kata</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>181</td><td>Tetris DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>182</td><td>Tiger Woods PGA Tour 08</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>183</td><td>Tongari Boushi to Mahō no 365 Nichi</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>184</td><td>Tony Hawk's American Sk8land</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>185</td><td>Tony Hawk's Downhill Jam</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>186</td><td>Tony Hawk's Proving Ground</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>187</td><td>TouchMaster</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>188</td><td>Transformers: Autobots</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>189</td><td>Transformers: Decepticons</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>190</td><td>Treasure World</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>191</td><td>Ultimate Band</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>192</td><td>Ultimate Mortal Kombat</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>193</td><td>Wagamama Fashion: Girls Mode</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>194</td><td>WarioWare D.I.Y.</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>195</td><td>Warhammer 40,000: Squad Command</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>196</td><td>Pro Evolution Soccer 6</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>197</td><td>Wi-Fi Taiō Yakuman DS</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>198</td><td>WordJong</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>199</td><td>Worms: Open Warfare 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>200</td><td>Yu-Gi-Oh! Duel Monsters GX: Spirit Summoner</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>201</td><td>Yu-Gi-Oh! World Championship 2007</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>202</td><td>Yu-Gi-Oh! World Championship 2008</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-    </table>
 </div>
 
-<!-- NINTENDO DSi -->
-<div class="section-title">Nintendo DSi</div>
-<div class="table-wrap">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Game</th>
-            <th>Status</th>
-            <th>Profiles</th>
-            <th>Online</th>
-            <th>Total</th>
-            <th>Notes</th>
-        </tr>
+<div class="container">
 
-        <tr><td>1</td><td>Foto Showdown</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>2</td><td>Hidden Photo</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>3</td><td>Picture Perfect Hair Salon</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-    </table>
+    <h2></h2>
+
+    <div class="game-entry">
+        <h3>Mario Kart DS <span class="badge badge-nds">NDS</span></h3>
+        <ul>
+            <li>Status: Working</li>
+        </ul>
+    </div>
+
+    <div class="game-entry">
+        <h3>UNO DSiWare<span class="badge badge-dsi">DSiWare</span></h3>
+        <ul>
+            <li>Partially Working</li>
+            <li>Matchmaking and Gamestats HTTP dont work.</li>
+        </ul>
+    </div>
+
+    <div class="game-entry">
+        <h3>Mini-Land Mayhem <span class="badge badge-nds">NDS</span></h3>
+        <ul>
+            <li>Testing</li>
+            <li></li>
+        </ul>
+    </div>
+
+    <div class="game-entry">
+        <h3>Mario Kart DS <span class="badge badge-nds">NDS</span></h3>
+        <ul>
+            <li>Testing</li>
+        </ul>
+    </div>
+
+    <div class="game-entry">
+        <h3>DSi Shop <span class="badge badge-dsi">shop</span></h3>
+        <ul>
+            <li>How do i like, get it working?</li>
+        </ul>
+    </div>
+
+    <div class="game-entry">
+        <h3>GoPets <span class="badge badge-nds">NDS</span></h3>
+        <ul>
+            <li>Nah im not finding out what the servers look like. Game unsupported permanently.</li>
+        </ul>
+    </div>
+    <div class="game-entry">
+        <h3>Tetris DS<span class="badge badge-nds">NDS</span></h3>
+        <ul>
+            <li>Testing</li>
+        </ul>
+    </div>
+        <div class="game-entry">
+        <h3>Grand Theft Auto: Chinatown Wars<span class="badge badge-nds">NDS</span></h3>
+        <ul>
+            <li>Testing</li>
+        </ul>
+    </div>
+        </div>
+        <div class="game-entry">
+        <h3>Bomberman Blitz<span class="badge badge-dsi">DSiWare</span></h3>
+        <ul>
+            <li>Testing</li>
+            
+        </ul>
+    </div>
+
+    </div>
+        <div class="game-entry">
+        <h3>Tetris Party Deluxe<span class="badge badge-nds">NDS</span></h3>
+        <ul>
+            <li>Testing</li>
+        </ul>
+    </div>
+    
 </div>
-
-<!-- DSiWARE -->
-<div class="section-title">DSiWare</div>
-<div class="table-wrap">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Status</th>
-            <th>Profiles</th>
-            <th>Online</th>
-            <th>Total</th>
-            <th>Notes</th>
-        </tr>
-
-        <tr><td>1</td><td>Bomberman Blitz</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>2</td><td>Dragon Quest Wars</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>3</td><td>Mario vs. Donkey Kong: Minis March Again!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>4</td><td>Metal Torrent</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>5</td><td>Sujin Taisen: Number Battles</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>6</td><td>System Flaw: Recruit</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>7</td><td>Tetris Party Live</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>8</td><td>Uno</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-    </table>
-</div>
-
-<!-- NINTENDO WII -->
-<div class="section-title">Nintendo Wii</div>
-<div class="table-wrap">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Game</th>
-            <th>Status</th>
-            <th>Profiles</th>
-            <th>Online</th>
-            <th>Total</th>
-            <th>Notes</th>
-        </tr>
-
-        <tr><td>1</td><td>007: Quantum of Solace</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>2</td><td>Animal Crossing: City Folk</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>3</td><td>Battalion Wars 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>4</td><td>The Beatles: Rock Band</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>5</td><td>Blast Works: Build, Trade, Destroy</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>6</td><td>Bleach: Versus Crusade</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>7</td><td>Bomberman Blast</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>8</td><td>Boom Blox Bash Party</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>9</td><td>Call of Duty: Modern Warfare 3</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>10</td><td>Call of Duty: Black Ops</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>11</td><td>Call of Duty: Modern Warfare – Reflex Edition</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>12</td><td>Call of Duty: World at War</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>13</td><td>Castlevania Judgment</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>14</td><td>The Conduit</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>15</td><td>Conduit 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>16</td><td>DJ Hero</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>17</td><td>DJ Hero 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>18</td><td>Dragon Ball Z: Budokai Tenkaichi 3</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>19</td><td>Endless Ocean</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>20</td><td>Endless Ocean 2: Adventures of the Deep</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>21</td><td>Excitebots: Trick Racing</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>22</td><td>Final Fantasy Crystal Chronicles: Echoes of Time</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>23</td><td>Final Fantasy Fables: Chocobo's Dungeon</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>24</td><td>FIFA 08</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>25</td><td>FIFA 09 All-Play</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>26</td><td>FIFA 10</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>27</td><td>FIFA 11</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>28</td><td>Fortune Street</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>29</td><td>Geometry Wars: Galaxies</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>30</td><td>Ghost Squad</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>31</td><td>Grand Slam Tennis</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>32</td><td>GoldenEye 007</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>33</td><td>GTI Club Supermini Festa!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>34</td><td>Guinness World Records: The Videogame</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>35</td><td>Guitar Hero: Aerosmith</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>36</td><td>Guitar Hero: Metallica</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>37</td><td>Guitar Hero: Smash Hits</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>38</td><td>Guitar Hero III: Legends of Rock</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>39</td><td>Guitar Hero World Tour</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>40</td><td>Guitar Hero 5</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>41</td><td>Guitar Hero: Warriors of Rock</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>42</td><td>Hooked! Real Motion Fishing</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>43</td><td>Jikkyō Powerful Pro Yakyū Wii Ketteiban</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>44</td><td>Jissen Pachi-Slot Pachinko Hisshōhō! Hokuto no Ken Wii</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>45</td><td>Just Dance</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>46</td><td>Just Dance 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>47</td><td>Just Dance 3</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>48</td><td>Just Dance 4</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>49</td><td>Just Dance 2014</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>50</td><td>Just Dance 2015</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>51</td><td>Just Dance 2016</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>52</td><td>Just Dance 2017</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>53</td><td>Just Dance 2018</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>54</td><td>Just Dance 2019</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>55</td><td>Just Dance 2020</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>56</td><td>Karaoke Joysound Wii</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>57</td><td>Katekyō Hitman Reborn! Kindan no Yami no Delta</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>58</td><td>The Last Story</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>59</td><td>Madden NFL 08</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>60</td><td>Madden NFL 09 All-Play</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>61</td><td>Madden NFL 10</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>62</td><td>Mario Kart Wii</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>63</td><td>Mario &amp; Sonic at the London 2012 Olympic Games</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>64</td><td>Mario &amp; Sonic at the Olympic Games</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>65</td><td>Mario &amp; Sonic at the Olympic Winter Games</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>66</td><td>Mario Strikers Charged</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>67</td><td>Medal of Honor: Heroes 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>68</td><td>Momotarou Dentetsu 16</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>69</td><td>Monster Hunter Tri</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>70</td><td>Monster Lab</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>71</td><td>MX vs. ATV Untamed</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>72</td><td>Naruto Shippuden Clash of Ninja Revolution 3</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>73</td><td>NBA Live 08</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>74</td><td>NBA Live 09 All-Play</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>75</td><td>NHL 2K10</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>76</td><td>NHL 2K11</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>77</td><td>NiGHTS: Journey of Dreams</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>78</td><td>Nitrobike</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>79</td><td>Octomania</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>80</td><td>Pokémon Battle Revolution</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>81</td><td>Pro Evolution Soccer 2008</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>82</td><td>Pro Evolution Soccer 2009</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>83</td><td>Pro Evolution Soccer 2010</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>84</td><td>Pro Evolution Soccer 2011</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>85</td><td>Rabbids Go Home</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>86</td><td>Rayman Raving Rabbids 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>87</td><td>Rayman Raving Rabbids: TV Party</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>88</td><td>Rock Band 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>89</td><td>Rock Band 3</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>90</td><td>Samba de Amigo</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>91</td><td>Gunblade NY &amp; L.A. Machineguns Arcade Hits Pack</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>92</td><td>Sin &amp; Punishment: Star Successor</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>93</td><td>SimCity Creator</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>94</td><td>Simple Wii Series Vol. 1: The Minna de Kart Race</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>95</td><td>Simple Wii Series Vol. 2: The Minna de Bass Tsuri Taikai</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>96</td><td>Simple Wii Series Vol. 3: Ason de Wakaru - The Party Casino</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>97</td><td>Simple Wii Series Vol. 4: The DokoDemo Asoberu - The Shooting Action</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>98</td><td>Simple Wii Series Vol. 5: The Block Kuzushi</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>99</td><td>Simple Wii Series Vol. 6: The Wai Wai Combat</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>100</td><td>Sonic &amp; Sega All-Stars Racing</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>101</td><td>Sonic Colors</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>102</td><td>Sonic Riders: Zero Gravity</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>103</td><td>Sonic and the Black Knight</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>104</td><td>Super Smash Bros. Brawl</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>105</td><td>Tatsunoko vs. Capcom: Ultimate All Stars</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>106</td><td>Teenage Mutant Ninja Turtles: Smash-Up</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>107</td><td>Tetris Party Deluxe</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>108</td><td>Tiger Woods PGA Tour 09 All-Play</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>109</td><td>Tiger Woods PGA Tour 10</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>110</td><td>Trauma Center: New Blood</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>111</td><td>TrackMania: Build to Race</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>112</td><td>Ultimate Band</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>113</td><td>Valhalla Knights: Eldar Saga</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>114</td><td>Virtua Tennis 2009</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>115</td><td>We Love Golf!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>116</td><td>Wi-Fi Taiou: Gensen Table Game Wii</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>117</td><td>Wii Chess</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>118</td><td>Wii Music</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>119</td><td>WWE SmackDown vs. Raw 2009</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>120</td><td>Zangeki no Reginleiv</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-    </table>
-</div>
-
-<!-- WIIWARE -->
-<div class="section-title">WiiWare</div>
-<div class="table-wrap">
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Status</th>
-            <th>Profiles</th>
-            <th>Online</th>
-            <th>Total</th>
-            <th>Notes</th>
-        </tr>
-
-        <tr><td>1</td><td>Alien Crush Returns</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>2</td><td>Bomberman Blast</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>3</td><td>Bubble Bobble Plus!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>4</td><td>Chess Challenge!!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>5</td><td>Crystal Defenders R1/R2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>6</td><td>Diner Dash</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>7</td><td>Dr. Mario Online Rx</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>8</td><td>Evasive Space</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>9</td><td>Excitebike: World Rally</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>10</td><td>Final Fantasy Crystal Chronicles: My Life as a King</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>11</td><td>Gradius ReBirth</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>12</td><td>High Voltage Hot Rod Show</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>13</td><td>Karaoke Joysound Wii</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>14</td><td>Kotoba no Puzzle: Mojipittan</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>15</td><td>Lonpos</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>16</td><td>Major League Eating: The Game</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>17</td><td>Mart Racer</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>18</td><td>Mega Man 9</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>19</td><td>Mega Man 10</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>20</td><td>Military Madness: Nectaris</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>21</td><td>Oekaki Logic</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>22</td><td>Onslaught</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>23</td><td>Overturn</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>24</td><td>Pool Revolution: Cue Sports</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>25</td><td>Pop</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>26</td><td>Pit Crew Panic!</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>27</td><td>Robocalypse: Beaver Defense</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>28</td><td>Snowboard Riot</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>29</td><td>Sonic the Hedgehog 4: Episode I</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>30</td><td>Space Invaders Get Even</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>31</td><td>SPOGS Racing</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>32</td><td>Star Soldier R</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>33</td><td>Tetris Party</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>34</td><td>Texas Hold'em Poker</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>35</td><td>Texas Hold'em Tournament</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>36</td><td>Tomena Sanner</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>37</td><td>TV Show King 2</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>38</td><td>Uno</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>39</td><td>Tsuushin Taikyoku: World Chess</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>40</td><td>Water Warfare</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-        <tr><td>41</td><td>Yakuman Wii</td><td class="status testing"><span class="mascot">🧪</span>Testing</td><td>—</td><td>—</td><td>—</td><td></td></tr>
-    </table>
-</div>
-
-<footer>
-    © 2026 SpinnyWFC — All games currently in 🧪 Testing. Mascot may or may not be yelling in Spanish.
-</footer>
 
 </body>
 </html>
